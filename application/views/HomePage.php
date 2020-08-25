@@ -1,102 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>@ViewBag.Title</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="keywords" content="@ViewBag.keywords">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-</head>
-<body>
-    <div class="alertbox w-25">
-        <div id="Galert" class="alert alert-success animated ">@ViewBag.msgG</div>
-        <div id="Ralert" class="alert alert-danger animated ">@ViewBag.msgR</div>
+<section class="hero hero-bg d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+                <div class="hero-text rtl">
+                    <h1 class="text-white" data-aos="fade-up">ما برای راه اندازی کسب و کار اینترنتی شما آماده ایم!</h1>
+                    <a href="Contact" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">تماس با ما</a>
+                    <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i>09109563244</strong>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+                    <img src="assets/images/working-girl.png" class="img-fluid" alt="working girl">
+                </div>
+            </div>
+        </div>
     </div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="~/">
-                <i class="zmdi zmdi-chart"></i>
-                Digital Trend
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="~/plugins" class="nav-link">افزونه ها</a>
-                    </li>
-                    @{
-                        if (Session["userId"] == null)
-                        {
-                            <li class="nav-item">
-                                <a href="~/Login" class="nav-link">ورود</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a href="~/Logout" class="nav-link">خروج</a>
-                            </li>
-                        }
-                    }
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link smoothScroll">استودیو</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">درباره ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/Blog" class="nav-link">بلاگ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/Contact" class="nav-link contact">ارتباط باما</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    @RenderBody()
-    <footer class="site-footer rtl">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
-                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">مافقط <strong>برندهای</strong> خلاق می سازیم</h1>
-                    <div class="col-lg-10 col-md-4 col-8" data-aos="fade-up" data-aos-delay="300">
-                        <h4 class="my-4">نشانی دفتر مرکزی</h4>
-                        <p class="mb-1">
-                            <i class="zmdi zmdi-home mr-2 footer-icon"></i>
-                            مشهد _ ابتدای بلوار پیروزی _میدان شهید کاوه _دانشگاه شهید منتظری
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-8" data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="my-4">تماس باما</h4>
-                    <p class="mb-1">
-                        <i class="zmdi zmdi-phone mr-2 footer-icon"></i>
-                        +99 080 070 4224
-                    </p>
-                    <p>
-                        <a href="Contact">
-                            <i class="zmdi zmdi-email mr-2 footer-icon"></i>
-                            hello@company.com
-                        </a>
+</section>
+<section class="about section-padding pb-0" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto col-md-10 col-12">
+                <div class="about-info rtl">
+                    <h2 class="mb-4" data-aos="fade-up">لورم ایپسوم متن ساختگی با تولید سادگی</h2>
+                    <p class="mb-0" data-aos="fade-up">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                     </p>
                 </div>
-                @Html.Partial("_links", new links().select())
-                @Html.Partial("_categorys", new categorys().select())
-                <div class="col-lg-12 col-md-12 col-12 m-r-70" data-aos="fade-up" data-aos-delay="200">
-                    &copy; Created By Rohollah Khoshhal &hearts;
+                <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/images/office.png" class="img-fluid" alt="office">
                 </div>
             </div>
         </div>
-    </footer>
-    @Scripts.Render("~/MainScripts")
-    @RenderSection("script", false)
-</body>
-</html>
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds.
+    </div>
+</section>
+<section class="project section-padding" id="project">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <h2 class="mb-5 text-center" data-aos="fade-up">
+                    برخی از ویژگی های 
+                    <strong>دیجیتال مارکتینگ</strong>
+                </h2>
+                <?php $this->load->view('templates/slider',) ?>
+            </div>
+        </div>
+    </div>
+</section>

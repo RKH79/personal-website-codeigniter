@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@ViewBag.Title</title>
+    <title><?= $title ?></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="@ViewBag.keywords">
@@ -20,14 +20,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
     <div class="alertbox w-25">
-        <div id="Galert" class="alert alert-success animated ">@ViewBag.msgG</div>
-        <div id="Ralert" class="alert alert-danger animated "></div>
+
+        <div id="Galert" class="alert alert-success animated "><?= $_SESSION['msgG'] ?></div>
+        <div id="Ralert" class="alert alert-danger animated "><?= $_SESSION['msgR'] ?></div>
+        <?php $_SESSION['msgR'] = $_SESSION['msgG'] = ""; ?>
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="~/">
+            <a class="navbar-brand" href="/">
                 <i class="zmdi zmdi-chart"></i>
-                Digital Trend
+                R.KH
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -36,26 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="~/plugins" class="nav-link">افزونه ها</a>
-                    </li>
-                            <li class="nav-item">
-                                <a href="~/Login" class="nav-link">ورود</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="~/Logout" class="nav-link">خروج</a>
-                            </li>
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link smoothScroll">استودیو</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">درباره ما</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/Blog" class="nav-link">بلاگ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/Contact" class="nav-link contact">ارتباط باما</a>
+                        <a href="contact" class="nav-link contact">ارتباط باما</a>
                     </li>
                 </ul>
             </div>

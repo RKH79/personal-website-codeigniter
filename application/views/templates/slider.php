@@ -1,17 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="owl-carousel owl-theme" id="project-slide">
-        <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <img src="~/images/sliderImage/@item.imageUrl" class="img-fluid" alt="@item.title @item.banner">
+<div class="owl-carousel owl-theme" id="project-slide" data-aos="fade-up">
+<?php foreach($slider as $slide): ?>
+        <div class="item project-wrapper" data-aos="fade-up">
+            <img src="assets/images/sliderImage/project-image01.jpg" class="img-fluid" alt="">
             <div class="project-info rtl">
-                <small>@item.title</small>
                 <h3>
-                    <a href="~/ProjectDetails/@item.Id/@item.title">
-                        <span>@item.banner</span>
+                    <a href="~/ProjectDetails">
+                        <span><?= $slide->title ?></span>
                         <i class="zmdi zmdi-chevron-left project-icon"></i>
                     </a>
                 </h3>
             </div>
         </div>
+<?php endforeach; ?>
 </div>

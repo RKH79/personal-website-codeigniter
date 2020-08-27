@@ -26,7 +26,7 @@ class home_model extends CI_Model {
             return array('detail'=>$detail,'images'=>$images);
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "متاسفانه مشکلی در سیستم رخ داده است";
-            header("Location: .");
+            return false;
         }
     }
     public function comments($id)
@@ -48,7 +48,6 @@ class home_model extends CI_Model {
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
         }
-        header("Location: .");
     }
     function newComment($id)
     {
@@ -65,7 +64,6 @@ class home_model extends CI_Model {
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
         }
-        header("Location: projectDetail".$id);
     }
     public function login()
     {
@@ -73,11 +71,12 @@ class home_model extends CI_Model {
         $user = $this->db->get_where('users',array('email'=>$_POST['email'],'password'=>$_POST['password']))->result_object();
         if (isset($user['0']->id)) {
             $_SESSION['userId'] = $user['0']->id;
-            $_SESSION['msgR'] = ".خوش آمدید";
-            header("Location: admin");
+            $_SESSION['msgG'] = ".خوش آمدید";
+            return true;
         }
         else {
             $_SESSION['msgR'] = "!!نام کاربری یا رمز عبور اشتباه است";
+            return false;
         }
     }
 }

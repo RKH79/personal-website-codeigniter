@@ -22,26 +22,38 @@ class Home extends CI_Controller {
 		$this->load->library('jdf');
 		$this->load->model('home_model');
 		$details = $this->home_model->projectDetail($id);
-		$this->load->view('templates/header',array("title" => "" ));
-		$this->load->view('projectDetailPage',array('data' => $details));
-		$this->load->view('templates/footer');
+		if (is_array($details) ) {
+			$this->load->view('templates/header',array("title" => "" ));
+			$this->load->view('projectDetailPage',array('data' => $details));
+			$this->load->view('templates/footer');
+		}
+		else {
+			header("Location: .");
+		}
 	}
 	public function newMessage()
 	{
 		$this->load->model('home_model');
 		$this->home_model->newMessage();
+		header("Location: .");
 	}
 	public function newComment($id)
 	{
 		$this->load->model('home_model');
 		$this->home_model->newComment($id);
+		header("Location: projectDetail".$id);
 	}
 	public function login()
 	{
 		if (isset($_POST['email'])) {
 			$this->load->model('home_model');
-			$this->home_model->login();
-			$this->load->view('loginPage');
+			$result = $this->home_model->login();
+			if ($result) {
+				header("Location: admin");
+			}
+			else {
+				$this->load->view('loginPage');
+			}
 		}
 		else {
 			$this->load->view('loginPage');

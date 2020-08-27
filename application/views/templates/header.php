@@ -22,8 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class="alertbox w-25">
 
-        <div id="Galert" class="alert alert-success animated "><?= $_SESSION['msgG'] ?></div>
-        <div id="Ralert" class="alert alert-danger animated "><?= $_SESSION['msgR'] ?></div>
+        <div id="Galert" class="alert alert-success animated "><?= (isset($_SESSION['msgG']))? $_SESSION['msgG'] : "" ?></div>
+        <div id="Ralert" class="alert alert-danger animated "><?= (isset($_SESSION['msgR']))? $_SESSION['msgR'] : "" ?></div>
         <?php $_SESSION['msgR'] = $_SESSION['msgG'] = ""; ?>
     </div>
     <nav class="navbar navbar-expand-lg">

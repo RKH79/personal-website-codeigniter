@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      برخی از <strong>پروژه های </strong>انجام شده
                 </h2>
                 <?php 
-                $this->load->view('templates/slider',array("slider"=> $this->home_model->sliderData() )) ?>
+                $this->load->view('templates/slider',array("slider"=> $this->home_model->sliderData())) ?>
             </div>
         </div>
     </div>

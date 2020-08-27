@@ -7,6 +7,7 @@ foreach($slider as $slide): ?>
         <div class="item project-wrapper" data-aos="fade-up">
             <img src="assets/images/sliderImage/<?=$slide->url ?>" class="img-fluid" alt="<?= $slide->title ?>">
             <div class="project-info rtl">
+            <small><?= $this->jdf->tr_num($this->jdf->dateCompare($slide->datetime,1),'fa') ?></small>
                 <h3>
                     <a href="projectDetail<?=$slide->projectId?>">
                         <span><?= $slide->title ?></span>

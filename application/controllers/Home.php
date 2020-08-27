@@ -5,6 +5,7 @@ session_start();
 class Home extends CI_Controller {
 	public function index()
 	{
+		$this->load->library('jdf');
 		$this->load->model('home_model');
 		$this->load->view('templates/header',array("title" => "صفحه نخست"));
 		$this->load->view('HomePage');
@@ -18,6 +19,7 @@ class Home extends CI_Controller {
 	}
 	public function projectDetail($id)
 	{
+		$this->load->library('jdf');
 		$this->load->model('home_model');
 		$details = $this->home_model->projectDetail($id);
 		$this->load->view('templates/header',array("title" => "" ));

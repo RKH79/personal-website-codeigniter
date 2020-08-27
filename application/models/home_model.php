@@ -9,7 +9,10 @@ class home_model extends CI_Model {
 
     function sliderData(){
         $this->load->database();
-        return $this->db->get("workSample")->result_object();
+        $this->db->from('projects');
+        $this->db->where(array ('images.master'=>1));
+        $this->db->join('images', 'projects.id = images.projectId');
+        return $this->db->get()->result_object();
     }
 
     function newMessage()
@@ -26,6 +29,27 @@ class home_model extends CI_Model {
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
         }
+        header("Location: .");
+    }
+    public function projectDetail($id)
+    {
+        try {
+            $this->load->database();
+            $detail = $this->db->get_where('projects',array ('id'=>$id))->result_object();
+            $this->db->from('images');
+            $this->db->where(array ('projectId'=>$id));
+            $this->db->order_by("master", "DESC");
+            $images = $this->db->get()->result_object();
+            return array('detail'=>$detail,'images'=>$images);
+        } catch (\Throwable $th) {
+            $_SESSION['msgR'] = "متاسفانه مشکلی در سیستم رخ داده است";
+            header("Location: .");
+        }
+    }
+    public function comments($id)
+    {
+        $this->load->database();
+        return $this->db->get_where('comments',array ('id'=>$id))->result_object();
     }
 }
 ?>

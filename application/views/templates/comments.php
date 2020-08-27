@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
 <?php foreach ($comments as $comment): ?>
         <blockquote>
             <div class="d-flex align-items-center">

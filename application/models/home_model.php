@@ -14,23 +14,6 @@ class home_model extends CI_Model {
         $this->db->join('images', 'projects.id = images.projectId');
         return $this->db->get()->result_object();
     }
-
-    function newMessage()
-    {
-        try {
-            $this->load->database();
-            $message = array(
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'message' => $_POST['message']
-            );
-            $this->db->insert('messages', $message);
-            $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
-        } catch (\Throwable $th) {
-            $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
-        }
-        header("Location: .");
-    }
     public function projectDetail($id)
     {
         try {
@@ -49,7 +32,40 @@ class home_model extends CI_Model {
     public function comments($id)
     {
         $this->load->database();
-        return $this->db->get_where('comments',array ('id'=>$id))->result_object();
+        return $this->db->get_where('comments',array ('workId'=>$id))->result_object();
+    }
+    function newMessage()
+    {
+        try {
+            $this->load->database();
+            $message = array(
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'message' => $_POST['message']
+            );
+            $this->db->insert('messages', $message);
+            $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
+        }
+        header("Location: .");
+    }
+    function newComment($id)
+    {
+        try {
+            $this->load->database();
+            $comment = array(
+                'workId' => $id,
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'comment' => $_POST['comment']
+            );
+            $this->db->insert('comments', $comment);
+            $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
+        }
+        header("Location: projectDetail".$id);
     }
 }
 ?>

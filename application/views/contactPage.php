@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <input type="text" class="form-control" name="name" placeholder="نام">
                           </div>
                           <div class="col-lg-6 col-12">
-                            <input type="email" class="form-control" name="email" placeholder="آدرس ایمیل">
+                            <input type="email" class="form-control text-right" name="email" placeholder="آدرس ایمیل" dir="ltr">
                           </div>
                           <div class="col-lg-12 col-12">
                             <textarea class="form-control" rows="6" name="message" placeholder="پیام"></textarea>

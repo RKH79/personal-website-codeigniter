@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="@ViewBag.keywords">
+    <link rel="icon" type="image/png" href="assets/images/logo.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="assets/styles/animate.min.css" rel="stylesheet"/>
     <link href="assets/styles/bootstrap.min.css" rel="stylesheet"/>

@@ -55,5 +55,6 @@ $route['contact'] = 'home/contact';
 $route['newMessage'] = 'home/newMessage';
 $route['projectDetail(:num)'] = 'home/projectDetail/$1';
 $route['comment(:num)'] = 'home/newComment/$1';
+$route['login'] = 'home/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

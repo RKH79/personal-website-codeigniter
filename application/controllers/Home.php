@@ -36,4 +36,15 @@ class Home extends CI_Controller {
 		$this->load->model('home_model');
 		$this->home_model->newComment($id);
 	}
+	public function login()
+	{
+		if (isset($_POST['email'])) {
+			$this->load->model('home_model');
+			$this->home_model->login();
+			$this->load->view('loginPage');
+		}
+		else {
+			$this->load->view('loginPage');
+		}
+	}
 }

@@ -67,5 +67,18 @@ class home_model extends CI_Model {
         }
         header("Location: projectDetail".$id);
     }
+    public function login()
+    {
+        $this->load->database();
+        $user = $this->db->get_where('users',array('email'=>$_POST['email'],'password'=>$_POST['password']))->result_object();
+        if (isset($user['0']->id)) {
+            $_SESSION['userId'] = $user['0']->id;
+            $_SESSION['msgR'] = ".خوش آمدید";
+            header("Location: admin");
+        }
+        else {
+            $_SESSION['msgR'] = "!!نام کاربری یا رمز عبور اشتباه است";
+        }
+    }
 }
 ?>

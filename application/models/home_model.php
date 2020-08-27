@@ -32,7 +32,7 @@ class home_model extends CI_Model {
     public function comments($id)
     {
         $this->load->database();
-        return $this->db->get_where('comments',array ('workId'=>$id))->result_object();
+        return $this->db->get_where('comments',array ('workId'=>$id ,'see'=>1))->result_object();
     }
     function newMessage()
     {

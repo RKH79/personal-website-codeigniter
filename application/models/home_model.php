@@ -68,7 +68,8 @@ class home_model extends CI_Model {
     public function login()
     {
         $this->load->database();
-        $user = $this->db->get_where('users',array('email'=>$_POST['email'],'password'=>$_POST['password']))->result_object();
+        $password = sha1(md5($_POST['password']));
+        $user = $this->db->get_where('users',array('email'=>$_POST['email'],'password'=>$password))->result_object();
         if (isset($user['0']->id)) {
             $_SESSION['userId'] = $user['0']->id;
             $_SESSION['msgG'] = ".خوش آمدید";

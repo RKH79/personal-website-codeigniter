@@ -15,7 +15,7 @@
         <div id="Ralert" class="alert alert-danger animated "><?= (isset($_SESSION['msgR']))? $_SESSION['msgR'] : "" ?></div>
         <?php $_SESSION['msgR'] = $_SESSION['msgG'] = ""; ?>
     </div>
-    <div class="page-wrapper">
+    <div class="page-wrapper pb-0">
         <div class="page-content--bge5">
             <div class="container">
                 <div class="login-wrap">

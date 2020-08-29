@@ -45,18 +45,23 @@ class Home extends CI_Controller {
 	}
 	public function login()
 	{
-		if (isset($_POST['email'])) {
-			$this->load->model('home_model');
-			$result = $this->home_model->login();
-			if ($result) {
-				header("Location: admin");
+		if (isset($_SESSION['userId'])) {
+			header("Location: admin");
+		}
+		else{
+			if (isset($_POST['email'])) {
+				$this->load->model('home_model');
+				$result = $this->home_model->login();
+				if ($result) {
+					header("Location: admin");
+				}
+				else {
+					$this->load->view('loginPage');
+				}
 			}
 			else {
 				$this->load->view('loginPage');
 			}
-		}
-		else {
-			$this->load->view('loginPage');
 		}
 	}
 }

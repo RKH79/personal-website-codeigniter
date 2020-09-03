@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="~/admin/showMessages">
+                            <a href="messages">
                                 <i class="zmdi zmdi-email"></i>پیام ها
                             </a>
                         </li>
@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li id="messages">
-                            <a href="~/admin/showMessages">
+                            <a href="messages">
                                 <i class="zmdi zmdi-email"></i>پیام ها
                             </a>
                         </li>

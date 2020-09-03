@@ -35,6 +35,16 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/template/footer',array('page'=>'home'));
     }
 
+    public function messages()
+    {
+        $this->load->library('jdf');
+        $this->load->model('admin_model');
+        $messages = $this->admin_model->messages();
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پیام ها'));
+        $this->load->view('adminPanel/messages', array('messages'=>$messages));
+        $this->load->view('adminPanel/template/footer',array('page'=>'home'));
+    }
+
     public function logout()
     {
         session_destroy();

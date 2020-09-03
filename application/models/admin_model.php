@@ -28,4 +28,9 @@ class admin_model extends CI_Model {
         $this->db->where(array ('images.master'=>1));
         return $this->db->get()->result_object();
     }
+    public function messages()
+    {
+        $this->load->database();
+        return $this->db->get('messages')->result_object();
+    }
 }

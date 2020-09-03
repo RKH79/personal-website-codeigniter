@@ -59,5 +59,6 @@ $route['login'] = 'home/login';
 $route['logout'] = 'admin/logout';
 $route['projects'] = 'admin/projects';
 $route['comments'] = 'admin/comments';
+$route['messages'] = 'admin/messages';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

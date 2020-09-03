@@ -53,8 +53,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="~/admin/showSlides">
-                                <i class="zmdi zmdi-collection-image"></i>اسلایدر
+                            <a href="projects">
+                                <i class="zmdi zmdi-collection-image"></i>پروژه ها
                             </a>
                         </li>
                         <li>
@@ -73,7 +73,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="~/admin/showComments">
+                            <a href="comments">
                                 <i class="zmdi zmdi-comment-more"></i>نظرات
                             </a>
                         </li>
@@ -107,8 +107,8 @@
                             </a>
                         </li>
                         <li id="slider">
-                            <a href="~/admin/showSlides">
-                                <i class="zmdi zmdi-collection-image"></i>اسلایدر
+                            <a href="projects">
+                                <i class="zmdi zmdi-collection-image"></i>پروژه ها
                             </a>
                         </li>
                         <li id="categorys">
@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li id="comments">
-                            <a href="~/admin/showComments">
+                            <a href="comments">
                                 <i class="zmdi zmdi-comment-more"></i>نظرات
                             </a>
                         </li>

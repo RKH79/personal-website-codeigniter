@@ -57,5 +57,7 @@ $route['projectDetail(:num)'] = 'home/projectDetail/$1';
 $route['comment(:num)'] = 'home/newComment/$1';
 $route['login'] = 'home/login';
 $route['logout'] = 'admin/logout';
+$route['projects'] = 'admin/projects';
+$route['comments'] = 'admin/comments';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

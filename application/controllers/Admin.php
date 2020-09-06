@@ -22,7 +22,7 @@ class admin extends CI_Controller {
         $projects = $this->admin_model->projects();
         $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها'));
         $this->load->view('adminPanel/projects', array('projects'=>$projects));
-        $this->load->view('adminPanel/template/footer',array('page'=>'home'));
+        $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
 
     public function comments()
@@ -32,7 +32,7 @@ class admin extends CI_Controller {
         $comments = $this->admin_model->comments();
         $this->load->view('adminPanel/template/header',array('title'=>'مدیریت نظرات'));
         $this->load->view('adminPanel/comments', array('comments'=>$comments));
-        $this->load->view('adminPanel/template/footer',array('page'=>'home'));
+        $this->load->view('adminPanel/template/footer',array('page'=>'comments'));
     }
 
     public function messages()
@@ -42,7 +42,7 @@ class admin extends CI_Controller {
         $messages = $this->admin_model->messages();
         $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پیام ها'));
         $this->load->view('adminPanel/messages', array('messages'=>$messages));
-        $this->load->view('adminPanel/template/footer',array('page'=>'home'));
+        $this->load->view('adminPanel/template/footer',array('page'=>'messages'));
     }
 
     public function logout()

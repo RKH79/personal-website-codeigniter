@@ -101,24 +101,9 @@
                                 <i class="zmdi zmdi-desktop-windows"></i>کنترل پنل
                             </a>
                         </li>
-                        <li id="blogs">
-                            <a href="~/admin/showBlogs">
-                                <i class="zmdi zmdi-file-text"></i>مطالب
-                            </a>
-                        </li>
-                        <li id="slider">
+                        <li id="projects">
                             <a href="projects">
                                 <i class="zmdi zmdi-collection-image"></i>پروژه ها
-                            </a>
-                        </li>
-                        <li id="categorys">
-                            <a href="~/admin/showCategorys">
-                                <i class="zmdi zmdi-tag-more"></i>دسته بندی ها
-                            </a>
-                        </li>
-                        <li id="links">
-                            <a href="~/admin/showLinks">
-                                <i class="zmdi zmdi-link"></i>پیوندها
                             </a>
                         </li>
                         <li id="users">

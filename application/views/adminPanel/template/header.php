@@ -68,11 +68,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="~/admin/showUsers">
-                                <i class="zmdi zmdi-accounts"></i>کاربران
-                            </a>
-                        </li>
-                        <li>
                             <a href="comments">
                                 <i class="zmdi zmdi-comment-more"></i>نظرات
                             </a>
@@ -104,11 +99,6 @@
                         <li id="projects">
                             <a href="projects">
                                 <i class="zmdi zmdi-collection-image"></i>پروژه ها
-                            </a>
-                        </li>
-                        <li id="users">
-                            <a href="~/admin/showUsers">
-                                <i class="zmdi zmdi-accounts"></i>کاربران
                             </a>
                         </li>
                         <li id="comments">

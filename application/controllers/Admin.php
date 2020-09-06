@@ -42,6 +42,13 @@ class admin extends CI_Controller {
         header("Location: comments");
     }
 
+    public function deleteComment($id)
+    {
+        $this->load->model('admin_model');
+        $this->admin_model->deleteComment($id);
+        header("Location: comments");
+    }
+
     public function messages()
     {
         $this->load->library('jdf');

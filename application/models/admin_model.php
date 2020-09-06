@@ -40,6 +40,16 @@ class admin_model extends CI_Model {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است".$th;
         }
     }
+    public function deleteComment($id)
+    {
+        try {
+            $this->load->database();
+            $this->db->delete('comments',array('id'=>$id));
+            $_SESSION['msgG']="!!نظر با موفقت حذف شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
     public function messages()
     {
         $this->load->database();

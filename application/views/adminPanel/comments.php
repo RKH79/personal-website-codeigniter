@@ -26,7 +26,7 @@
                             <i class="zmdi zmdi-close"></i>
                         </a>
                     <?php endif; ?>
-                    <a href="~/admin/deleteComment/@item.comment.Id" class="item" data-toggle="tooltip" data-placement="top" title="حذف">
+                    <a href="deleteComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="حذف">
                         <i class="zmdi zmdi-delete"></i>
                     </a>
                 </div>

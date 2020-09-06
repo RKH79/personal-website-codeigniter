@@ -45,6 +45,13 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/template/footer',array('page'=>'messages'));
     }
 
+    public function deleteMessage($id)
+    {
+        $this->load->model('admin_model');
+        $this->admin_model->deleteMessage($id);
+        header("Location: messages");
+    }
+
     public function logout()
     {
         session_destroy();

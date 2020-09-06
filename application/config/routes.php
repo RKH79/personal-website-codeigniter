@@ -60,5 +60,6 @@ $route['logout'] = 'admin/logout';
 $route['projects'] = 'admin/projects';
 $route['comments'] = 'admin/comments';
 $route['messages'] = 'admin/messages';
+$route['deleteMessage(:num)'] = 'admin/deleteMessage/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

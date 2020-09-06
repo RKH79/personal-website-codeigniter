@@ -33,4 +33,14 @@ class admin_model extends CI_Model {
         $this->load->database();
         return $this->db->get('messages')->result_object();
     }
+    public function deleteMessage($id)
+    {
+        try {
+            $this->load->database();
+            $this->db->delete('messages',array('id'=>$id));
+            $_SESSION['msgG']="!!پیام با موفقت حذف شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
 }

@@ -35,6 +35,13 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/template/footer',array('page'=>'comments'));
     }
 
+    public function statusComment($id)
+    {
+        $this->load->model('admin_model');
+        $this->admin_model->statusComment($id);
+        header("Location: comments");
+    }
+
     public function messages()
     {
         $this->load->library('jdf');

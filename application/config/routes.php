@@ -59,6 +59,7 @@ $route['login'] = 'home/login';
 $route['logout'] = 'admin/logout';
 $route['projects'] = 'admin/projects';
 $route['comments'] = 'admin/comments';
+$route['statusComment(:num)'] = 'admin/statusComment/$1';
 $route['messages'] = 'admin/messages';
 $route['deleteMessage(:num)'] = 'admin/deleteMessage/$1';
 $route['404_override'] = '';

@@ -28,6 +28,18 @@ class admin_model extends CI_Model {
         $this->db->where(array ('images.master'=>1));
         return $this->db->get()->result_object();
     }
+    public function statusComment($id)
+    {
+        try {
+            $this->load->database();
+            $this->db->set('status','!status',false);
+            $this->db->where('id', $id);
+            $this->db->update('comments');
+            $_SESSION['msgG']="!ویرایش با موفقیت انجام شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است".$th;
+        }
+    }
     public function messages()
     {
         $this->load->database();

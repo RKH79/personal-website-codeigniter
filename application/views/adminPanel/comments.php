@@ -18,11 +18,11 @@
             <div class="table-cell">
                 <div class="table-data-feature">
                     <?php if (!$comment->status): ?>
-                        <a href="~/admin/acceptComment/@item.comment.Id" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
+                        <a href="statusComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
                             <i class="zmdi zmdi-check"></i>
                         </a>
                     <?php else: ?>
-                        <a href="~/admin/acceptComment/@item.comment.Id" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
+                        <a href="statusComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="رد کردن">
                             <i class="zmdi zmdi-close"></i>
                         </a>
                     <?php endif; ?>

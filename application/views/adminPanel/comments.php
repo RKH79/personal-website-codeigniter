@@ -17,7 +17,7 @@
             <div class="table-cell"><img width="150px" src="assets/images/sliderImage/<?= $comment->url ?>" class="img-radius" alt="<?= $comment->title ?>"></div>
             <div class="table-cell">
                 <div class="table-data-feature">
-                    <?php if (!$comment->see): ?>
+                    <?php if (!$comment->status): ?>
                         <a href="~/admin/acceptComment/@item.comment.Id" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
                             <i class="zmdi zmdi-check"></i>
                         </a>

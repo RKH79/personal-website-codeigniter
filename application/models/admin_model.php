@@ -19,6 +19,17 @@ class admin_model extends CI_Model {
         $this->db->join('images', 'projects.id = images.projectId');
         return $this->db->get()->result_object();
     }
+    public function project($id)
+    {
+        $this->load->database();
+        return $this->db->get_where('projects',array('id'=>$id))->result_object();
+    }
+    public function projectImages($id)
+    {
+        $this->load->database();
+        $this->db->order_by("master", "DESC");
+        return $this->db->get_where('images',array('projectId'=>$id))->result_object();
+    }
     public function comments()
     {
         $this->load->database();

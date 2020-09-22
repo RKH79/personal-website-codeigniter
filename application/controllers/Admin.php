@@ -24,6 +24,16 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/projects', array('projects'=>$projects));
         $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
+    public function projectOperation($id)
+    {
+        $this->load->library('jdf');
+        $this->load->model('admin_model');
+        $project = $this->admin_model->project($id);
+        $projectImages = $this->admin_model->projectImages($id);
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها'));
+        $this->load->view('adminPanel/projectOperation', array('project'=>$project,'projectImages'=>$projectImages));
+        $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
+    }
 
     public function comments()
     {

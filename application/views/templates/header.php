@@ -41,6 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="nav-item">
                         <a href="contact" class="nav-link contact">ارتباط باما</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="records" class="nav-link contact">کلاس های ضبط شده</a>
+                    </li>
                 </ul>
             </div>
         </div>

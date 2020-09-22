@@ -29,6 +29,11 @@ class home_model extends CI_Model {
             return false;
         }
     }
+    public function records()
+    {
+        $this->load->database();
+        return $this->db->get_where('records',array ('status'=>1))->result_object();
+    }
     public function comments($id)
     {
         $this->load->database();

@@ -55,6 +55,7 @@ $route['contact'] = 'home/contact';
 $route['newMessage'] = 'home/newMessage';
 $route['projectDetail(:num)'] = 'home/projectDetail/$1';
 $route['comment(:num)'] = 'home/newComment/$1';
+$route['records'] = 'home/records';
 $route['login'] = 'home/login';
 $route['logout'] = 'admin/logout';
 $route['projects'] = 'admin/projects';

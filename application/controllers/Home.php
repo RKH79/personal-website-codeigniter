@@ -31,6 +31,15 @@ class Home extends CI_Controller {
 			header("Location: .");
 		}
 	}
+	public function records()
+	{
+		$this->load->model('home_model');
+		$this->home_model->records();
+		$records = $this->home_model->records();
+		$this->load->view('templates/header',array("title" => "" ));
+		$this->load->view('records',array('records' => $records));
+		$this->load->view('templates/footer');
+	}
 	public function newMessage()
 	{
 		$this->load->model('home_model');

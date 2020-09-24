@@ -2,7 +2,7 @@
 <div class="table-data__tool">
     <div class="table-data__tool-left"></div>
     <div class="table-data__tool-right">
-        <a href="~/admin/operationSlide" class="au-btn au-btn-icon au-btn--green au-btn--small">
+        <a href="projectOperation" class="au-btn au-btn-icon au-btn--green au-btn--small">
             <i class="zmdi zmdi-plus"></i>افزودن اسلاید جدید
         </a>
     </div>
@@ -23,10 +23,10 @@
             <div class="table-cell"><img width="150px" src="assets/images/sliderImage/<?= $project->url ?>" class="img-radius" alt="<?= $project->title ?>"></div>
             <div class="table-cell">
                 <div class="table-data-feature">
-                    <a href="~/admin/operationSlide/@item.Id" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                    <a href="projectOperation<?=$project->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                         <i class="zmdi zmdi-edit"></i>
                     </a>
-                    <a href="~/admin/deleteSlide/@item.Id" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                    <a href="projectOperation<?=$project->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                         <i class="zmdi zmdi-delete"></i>
                     </a>
                 </div>

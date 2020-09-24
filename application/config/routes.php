@@ -60,6 +60,7 @@ $route['login'] = 'home/login';
 $route['logout'] = 'admin/logout';
 $route['projects'] = 'admin/projects';
 $route['projectOperation(:num)?'] = 'admin/projectOperation/$1';
+$route['projectImageManage'] = 'admin/projectImageManage';
 $route['comments'] = 'admin/comments';
 $route['statusComment(:num)'] = 'admin/statusComment/$1';
 $route['deleteComment(:num)'] = 'admin/deleteComment/$1';

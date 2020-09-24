@@ -14,6 +14,7 @@ class admin_model extends CI_Model {
     public function projects()
     {
         $this->load->database();
+        $this->db->select('projects.id,images.url,projects.projectDate,projects.description,projects.title');
         $this->db->from('projects');
         $this->db->where(array ('images.master'=>1));
         $this->db->join('images', 'projects.id = images.projectId');

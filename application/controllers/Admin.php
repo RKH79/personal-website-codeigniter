@@ -35,6 +35,38 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
 
+    public function projectImageManage()
+    {
+        if(isset($_FILES['file-select'])) {
+            /*if ($_POST['Del']!==""){
+                $DeleteFile = str_replace('url("../','',$_POST['Del']);
+                $DeleteFile = str_replace('")','',$DeleteFile);
+                if(is_file("../".$DeleteFile))
+                    unlink("../".$DeleteFile);
+            }*/
+            $file = $_FILES['file-select']['tmp_name'];
+            $sourceProperties = getimagesize($file);
+            $imageType = $sourceProperties[2];
+            date_default_timezone_set("Asia/Tehran");
+            $fileNewName = date("Y-m-d_H-i-s__") . rand(1,1000);
+            $folderPath = "assets/images/sliderImage/";
+            $ext = pathinfo($_FILES['file-select']['name'], PATHINFO_EXTENSION);
+            switch ($imageType) {
+                case IMAGETYPE_PNG:
+                    imagepng(imagecreatefrompng($file),$folderPath. $fileNewName. ".". $ext);
+                    break;
+                case IMAGETYPE_JPEG:
+                    imagejpeg(imagecreatefromjpeg($file),$folderPath. $fileNewName. ".". $ext);
+                    break;
+                default:
+                    echo "Invalid Image type.";
+                    exit;
+                    break;
+            }
+            echo "$fileNewName.$ext";
+        }
+    }
+
     public function comments()
     {
         $this->load->library('jdf');

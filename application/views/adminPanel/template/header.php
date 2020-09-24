@@ -13,8 +13,8 @@
     <link href="assets/styles/animate.min.css" rel="stylesheet"/>
     <link href="assets/styles/hamburgers.min.css" rel="stylesheet"/>
     <link href="assets/styles/select2.min.css" rel="stylesheet"/>
-    <link href="assets/styles/perfect-scrollbar.css" rel="stylesheet"/>
     <link href="assets/styles/adminTheme.css" rel="stylesheet"/>
+    <link href="assets/styles/site.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="alertbox w-25">

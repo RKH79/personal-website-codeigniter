@@ -11,7 +11,6 @@ if (imageurl!==null) {
         uploadImageAjax.send(formData);
         uploadImageAjax.onload = function () {
             if (uploadImageAjax.status === 200) {
-                console.log(uploadImageAjax.response);
                 document.getElementById("images").innerHTML += '<div class="d-inline-block imageBox"><div class="point" data-url="'+uploadImageAjax.response+'"><div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div><div class="triangle-down"><i class="masterImage zmdi zmdi-star-outline "></i></div></div><img class="projectImage" src="assets/images/sliderImage/'+uploadImageAjax.response+'" width="250px" height="150px" /></div>';
                 ImagesOperation()
             }
@@ -35,7 +34,6 @@ function ImagesOperation() {
     }
     let removeImageBtn = document.querySelectorAll(".removeImage");
     if (removeImageBtn != null) {
-        console.log(removeImageBtn);
         removeImageBtn.forEach(function(params) {
             params.onclick = function() {
                 let removeImageAjax = new XMLHttpRequest();
@@ -45,7 +43,7 @@ function ImagesOperation() {
                 removeImageAjax.send(formData);
                 removeImageAjax.onload = function () {
                     if (removeImageAjax.status === 200) {
-                        console.log(removeImageAjax.response);
+                        params.parentElement.parentElement.parentElement.remove();
                     } 
                 };
             }

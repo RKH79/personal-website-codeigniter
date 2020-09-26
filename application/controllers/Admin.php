@@ -34,11 +34,9 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/projectOperation', array('project'=>$project,'projectImages'=>$projectImages));
         $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
-
     public function uploadProjectImage()
     {
         if(isset($_FILES['file-select'])) {
-            
             $file = $_FILES['file-select']['tmp_name'];
             $sourceProperties = getimagesize($file);
             $imageType = $sourceProperties[2];
@@ -70,7 +68,6 @@ class admin extends CI_Controller {
             $this->admin_model->removeProjectImage($_POST['url']);
         }
     }
-
     public function comments()
     {
         $this->load->library('jdf');
@@ -80,21 +77,18 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/comments', array('comments'=>$comments));
         $this->load->view('adminPanel/template/footer',array('page'=>'comments'));
     }
-
     public function statusComment($id)
     {
         $this->load->model('admin_model');
         $this->admin_model->statusComment($id);
         header("Location: comments");
     }
-
     public function deleteComment($id)
     {
         $this->load->model('admin_model');
         $this->admin_model->deleteComment($id);
         header("Location: comments");
     }
-
     public function messages()
     {
         $this->load->library('jdf');
@@ -104,14 +98,12 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/messages', array('messages'=>$messages));
         $this->load->view('adminPanel/template/footer',array('page'=>'messages'));
     }
-
     public function deleteMessage($id)
     {
         $this->load->model('admin_model');
         $this->admin_model->deleteMessage($id);
         header("Location: messages");
     }
-
     public function logout()
     {
         session_destroy();

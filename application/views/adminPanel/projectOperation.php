@@ -1,5 +1,4 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <div class="card rtl">
     <div class="card-header" style="text-align:center;">
         افزودن مطلب جدید
@@ -27,16 +26,22 @@
                 <div class="col col-md-2">
                     <label for="file-input" class=" form-control-label">تصویر</label>
                 </div>
-                    <div class="col-12 col-md-10">
-                        <div id="images" class="d-inline">
+                    <div class="col-12 col-md-10 images">
+                        <div class="d-inline-block" id="images">
                             <?php if (isset($projectImages[0]->url)): 
                                 foreach ($projectImages as $projectImage): ?> 
-                                <img class="projectImage" src="assets/images/sliderImage/<?=$projectImage->url?>" width="250px" height="150px" />
+                                <div class="d-inline-block imageBox">
+                                    <div class="point" data-url="<?=$projectImage->url?>">
+                                        <div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div>
+                                        <div class="triangle-down"><i class="masterImage zmdi zmdi-star<?=($projectImage->master)? "":"-outline" ?> "></i></div>
+                                    </div>
+                                    <img class="projectImage" src="assets/images/sliderImage/<?=$projectImage->url?>" width="250px" height="150px" />
+                                </div>
                                 <?php endforeach;
                             endif; ?>
                         </div>
-                        <label class="d-inline" for="imageurl">
-                            <img class="projectImage" id="addNewImage" src="assets/images/newImage.jpg?>" width="250px" height="150px" />
+                        <label class="d-inline-block" for="imageurl">
+                            <img id="addNewImage" src="assets/images/newImage.jpg?>" width="250px" height="150px" />
                         </label>
                         <div id="inputImageUrl">
                             <input type="file" id="imageurl" name="imageurl" class="d-none form-control-file" accept=".png,.jpeg,.jpg">
@@ -53,10 +58,11 @@
                 <i class="fa fa-ban"></i> Reset
             </button>
         </div>
-        <input id="Id" name="Id" value="@Model.Id" type="hidden" />
-        <input id="oldUrl" name="oldUrl" value="@Model.imageUrl" type="hidden" />
+        <input id="Id" name="Id" value="<?= ($project[0]->id)? $project[0]->id : "" ?>" type="hidden" />
+        <input id="images" name="images" value="" type="hidden" />
     </form>
 </div>
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
         CKEDITOR.replace('text');
         CKEDITOR.instances['text'].setData(new DOMParser().parseFromString(document.getElementById("text").innerHTML, 'text/html'));

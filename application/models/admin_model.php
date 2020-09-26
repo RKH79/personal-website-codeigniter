@@ -31,6 +31,11 @@ class admin_model extends CI_Model {
         $this->db->order_by("master", "DESC");
         return $this->db->get_where('images',array('projectId'=>$id))->result_object();
     }
+    public function removeProjectImage($url)
+    {
+        $this->load->database();
+        //TODO
+    }
     public function comments()
     {
         $this->load->database();

@@ -35,15 +35,10 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
 
-    public function projectImageManage()
+    public function uploadProjectImage()
     {
         if(isset($_FILES['file-select'])) {
-            /*if ($_POST['Del']!==""){
-                $DeleteFile = str_replace('url("../','',$_POST['Del']);
-                $DeleteFile = str_replace('")','',$DeleteFile);
-                if(is_file("../".$DeleteFile))
-                    unlink("../".$DeleteFile);
-            }*/
+            
             $file = $_FILES['file-select']['tmp_name'];
             $sourceProperties = getimagesize($file);
             $imageType = $sourceProperties[2];
@@ -64,6 +59,15 @@ class admin extends CI_Controller {
                     break;
             }
             echo "$fileNewName.$ext";
+        }
+    }
+    public function removeProjectImage()
+    {
+        if (isset($_POST['url'])) {
+            if(is_file("assets/images/sliderImage/".$_POST['url']))
+                unlink("assets/images/sliderImage/".$_POST['url']);
+            $this->load->model('admin_model');
+            $this->admin_model->removeProjectImage($_POST['url']);
         }
     }
 

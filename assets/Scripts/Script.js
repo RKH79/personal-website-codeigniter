@@ -1,18 +1,54 @@
 ﻿let Ralert=document.getElementById("Ralert");""!=Ralert.innerText&&(Ralert.style.display="block",Ralert.classList.add("fadeInRight"),setTimeout(function(){Ralert.classList.remove("fadeInRight"),Ralert.classList.add("fadeOutRight")},5e3)),Galert=document.getElementById("Galert"),""!=Galert.innerText&&(Galert.style.display="block",Galert.classList.add("fadeInRight"),setTimeout(function(){Galert.classList.remove("fadeInRight"),Galert.classList.add("fadeOutRight")},5e3));
 let imageurl = document.getElementById("imageurl");
-if (imageurl!=null) {
+let masterImage = "";
+let imageChange = [];
+if (imageurl!==null) {
     imageurl.onchange = function() {
         let formData = new FormData();
         formData.append('file-select', imageurl.files[0]);
-        formData.append('action', "imageUpload");
-        let imageAjax = new XMLHttpRequest();
-        imageAjax.open('POST', 'projectImageManage', true);
-        imageAjax.send(formData);
-        imageAjax.onload = function () {
-            if (imageAjax.status === 200) {
-                console.log(imageAjax.response);
-                document.getElementById("images").innerHTML += '<img class="projectImage" src="assets/images/sliderImage/'+imageAjax.response+'" width="250px" height="150px" />';
+        let uploadImageAjax = new XMLHttpRequest();
+        uploadImageAjax.open('POST', 'uploadProjectImage', true);
+        uploadImageAjax.send(formData);
+        uploadImageAjax.onload = function () {
+            if (uploadImageAjax.status === 200) {
+                console.log(uploadImageAjax.response);
+                document.getElementById("images").innerHTML += '<div class="d-inline-block imageBox"><div class="point" data-url="'+uploadImageAjax.response+'"><div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div><div class="triangle-down"><i class="masterImage zmdi zmdi-star-outline "></i></div></div><img class="projectImage" src="assets/images/sliderImage/'+uploadImageAjax.response+'" width="250px" height="150px" /></div>';
+                ImagesOperation()
             }
+            imageChange[imageChange.length] = uploadImageAjax.response;
         };
+    }
+}
+ImagesOperation()
+function ImagesOperation() {
+    let masterImageBtn = document.querySelectorAll(".masterImage");
+    if (masterImageBtn != null) {
+        masterImageBtn.forEach(function(params) {
+            params.onclick = function() {
+                masterImageBtn.forEach(function(p) {
+                    p.classList.replace('zmdi-star','zmdi-star-outline');
+                })
+                params.classList.replace('zmdi-star-outline','zmdi-star');
+                masterImage = params.parentElement.parentElement.dataset['url'];
+            }
+        })
+    }
+    let removeImageBtn = document.querySelectorAll(".removeImage");
+    if (removeImageBtn != null) {
+        console.log(removeImageBtn);
+        removeImageBtn.forEach(function(params) {
+            params.onclick = function() {
+                let removeImageAjax = new XMLHttpRequest();
+                removeImageAjax.open('POST', 'removeProjectImage', true);
+                let formData = new FormData();
+                formData.append('url', params.parentElement.parentElement.dataset['url']);
+                removeImageAjax.send(formData);
+                removeImageAjax.onload = function () {
+                    if (removeImageAjax.status === 200) {
+                        console.log(removeImageAjax.response);
+                    } 
+                };
+            }
+        })  
     }
 }

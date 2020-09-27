@@ -65,8 +65,8 @@ class admin_model extends CI_Model {
     {
         $this->load->database();
         $data = json_decode($_POST['images']);
-        if ($data->image!=null) {
-            for ($i=0; $i < count($data->image)-1 ; $i++) { 
+        if ($data->image!="") {
+            for ($i=0; $i < count($data->image) ; $i++) { 
                 $this->db->insert('images',array('projectId'=>$projectId,'url'=>$data->image[$i]));
             }
         }

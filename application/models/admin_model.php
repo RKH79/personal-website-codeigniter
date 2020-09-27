@@ -92,6 +92,7 @@ class admin_model extends CI_Model {
     public function comments()
     {
         $this->load->database();
+        $this->db->select('comments.id,images.url,projects.title,projects.description,comments.comment,comments.commentDate,comments.status');
         $this->db->from('comments');
         $this->db->join('projects','projects.id = comments.projectId');
         $this->db->join('images', 'projects.id = images.projectId');

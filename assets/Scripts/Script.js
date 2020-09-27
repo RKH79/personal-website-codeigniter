@@ -11,10 +11,11 @@ if (imageurl!==null) {
         uploadImageAjax.send(formData);
         uploadImageAjax.onload = function () {
             if (uploadImageAjax.status === 200) {
-                document.getElementById("images").innerHTML += '<div class="d-inline-block imageBox"><div class="point" data-url="'+uploadImageAjax.response+'"><div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div><div class="triangle-down"><i class="masterImage zmdi zmdi-star-outline "></i></div></div><img class="projectImage" src="assets/images/sliderImage/'+uploadImageAjax.response+'" width="250px" height="150px" /></div>';
-                ImagesOperation()
+                document.getElementById("imagesBox").innerHTML += '<div class="d-inline-block imageBox"><div class="point" data-url="'+uploadImageAjax.response+'"><div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div><div class="triangle-down"><i class="masterImage zmdi zmdi-star-outline "></i></div></div><img class="projectImage" src="assets/images/sliderImage/'+uploadImageAjax.response+'" width="250px" height="150px" /></div>';
+                ImagesOperation();
+                imageChange[imageChange.length] = uploadImageAjax.response;
+                document.getElementById("images").value = JSON.stringify({"image":imageChange,"master":masterImage});
             }
-            imageChange[imageChange.length] = uploadImageAjax.response;
         };
     }
 }
@@ -29,6 +30,7 @@ function ImagesOperation() {
                 })
                 params.classList.replace('zmdi-star-outline','zmdi-star');
                 masterImage = params.parentElement.parentElement.dataset['url'];
+                document.getElementById("images").value = JSON.stringify({"image":imageChange,"master":masterImage});
             }
         })
     }

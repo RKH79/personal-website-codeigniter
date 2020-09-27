@@ -3,7 +3,7 @@
     <div class="card-header" style="text-align:center;">
         افزودن مطلب جدید
     </div>
-    <form action="~/admin/operationSlide" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="projectOperation" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="card-body card-block">
             <div class="row form-group">
                 <div class="col col-md-2">
@@ -19,7 +19,7 @@
                     <label for="textarea-input" class=" form-control-label">متن</label>
                 </div>
                 <div class="col-12 col-md-10">
-                    <textarea name="text" id="text" class="form-control"><?= (isset($project[0]->description))? $project[0]->description : "" ?></textarea>
+                    <textarea name="description" id="description" class="form-control"><?= (isset($project[0]->description))? $project[0]->description : "" ?></textarea>
                 </div>
             </div>
             <div class="row form-group">
@@ -27,7 +27,7 @@
                     <label for="file-input" class=" form-control-label">تصویر</label>
                 </div>
                     <div class="col-12 col-md-10 images">
-                        <div class="d-inline-block" id="images">
+                        <div class="d-inline-block" id="imagesBox">
                             <?php if (isset($projectImages[0]->url)): 
                                 foreach ($projectImages as $projectImage): ?> 
                                 <div class="d-inline-block imageBox">
@@ -58,12 +58,12 @@
                 <i class="fa fa-ban"></i> Reset
             </button>
         </div>
-        <input id="Id" name="Id" value="<?= ($project[0]->id)? $project[0]->id : "" ?>" type="hidden" />
+        <input id="Id" name="Id" value="<?= (isset($project[0]->id))? $project[0]->id : "" ?>" type="hidden" />
         <input id="images" name="images" value="" type="hidden" />
     </form>
 </div>
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-        CKEDITOR.replace('text');
-        CKEDITOR.instances['text'].setData(new DOMParser().parseFromString(document.getElementById("text").innerHTML, 'text/html'));
+        CKEDITOR.replace('description');
+        CKEDITOR.instances['description'].setData(new DOMParser().parseFromString(document.getElementById("text").innerHTML, 'text/html'));
 </script>

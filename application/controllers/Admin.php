@@ -28,11 +28,24 @@ class admin extends CI_Controller {
     {
         $this->load->library('jdf');
         $this->load->model('admin_model');
-        $project = $this->admin_model->project($id);
-        $projectImages = $this->admin_model->projectImages($id);
-        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها'));
-        $this->load->view('adminPanel/projectOperation', array('project'=>$project,'projectImages'=>$projectImages));
-        $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
+        if (isset($_POST['Id'])) {
+            if ($_POST['Id'] == "") { //insert
+                $insertId = $this->admin_model->projectInsert();
+                $this->admin_model->insertProjectImage($insertId);
+            }
+            else { //update
+                $this->admin_model->projectUpdate();
+                $this->admin_model->insertProjectImage($_POST['Id']);
+            }
+            header("Location: projects");
+        }
+        else { //return view
+            $project = $this->admin_model->project($id);
+            $projectImages = $this->admin_model->projectImages($id);
+            $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها'));
+            $this->load->view('adminPanel/projectOperation', array('project'=>$project,'projectImages'=>$projectImages));
+            $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
+        }
     }
     public function uploadProjectImage()
     {

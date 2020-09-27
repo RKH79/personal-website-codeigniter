@@ -25,16 +25,55 @@ class admin_model extends CI_Model {
         $this->load->database();
         return $this->db->get_where('projects',array('id'=>$id))->result_object();
     }
+    public function projectInsert()
+    {
+        try {
+            $this->load->database();
+            $this->db->insert('projects',array('title'=>$_POST['title'],'description'=>$_POST['description']));
+            return $this->db->insert_id();
+            $_SESSION['msgG']="!پروژه جدید با موفقیت ثبت شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
+    public function projectUpdate()
+    {
+        try {
+            $this->load->database();
+            $this->db->update('projects',array('title'=>$_POST['title'],'description'=>$_POST['description']),array('id'=>$_POST['Id']));
+            $_SESSION['msgG']="!ویرایش با موفقیت انجام شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
     public function projectImages($id)
     {
-        $this->load->database();
-        $this->db->order_by("master", "DESC");
-        return $this->db->get_where('images',array('projectId'=>$id))->result_object();
+        try {
+            $this->load->database();
+            $this->db->order_by("master", "DESC");
+            return $this->db->get_where('images',array('projectId'=>$id))->result_object();
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
     }
     public function removeProjectImage($url)
     {
         $this->load->database();
         //TODO
+    }
+    public function insertProjectImage($projectId)
+    {
+        $this->load->database();
+        $data = json_decode($_POST['images']);
+        if ($data->image!=null) {
+            for ($i=0; $i < count($data->image)-1 ; $i++) { 
+                $this->db->insert('images',array('projectId'=>$projectId,'url'=>$data->image[$i]));
+            }
+        }
+        if ($data->master!="") {
+            $this->db->update('images',array('master'=>0),array('projectId'=>$projectId));
+            $this->db->update('images',array('master'=>1),array('url'=>$data->master));
+        }
     }
     public function comments()
     {
@@ -54,7 +93,7 @@ class admin_model extends CI_Model {
             $this->db->update('comments');
             $_SESSION['msgG']="!ویرایش با موفقیت انجام شد";
         } catch (\Throwable $th) {
-            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است".$th;
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
     public function deleteComment($id)

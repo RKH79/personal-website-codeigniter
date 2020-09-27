@@ -59,7 +59,7 @@ class home_model extends CI_Model {
         try {
             $this->load->database();
             $comment = array(
-                'workId' => $id,
+                'ProjectId' => $id,
                 'name' => $_POST['name'],
                 'email' => $_POST['email'],
                 'comment' => $_POST['comment']

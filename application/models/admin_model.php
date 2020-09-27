@@ -30,8 +30,8 @@ class admin_model extends CI_Model {
         try {
             $this->load->database();
             $this->db->insert('projects',array('title'=>$_POST['title'],'description'=>$_POST['description']));
-            return $this->db->insert_id();
             $_SESSION['msgG']="!پروژه جدید با موفقیت ثبت شد";
+            return $this->db->insert_id();
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
@@ -51,6 +51,7 @@ class admin_model extends CI_Model {
         try {
             $this->load->database();
         $this->db->delete('projects',array('id'=>$id));
+        $_SESSION['msgG']="!پروژه با موفقیت حذف شد";
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }

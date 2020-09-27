@@ -26,7 +26,7 @@
                     <a href="projectOperation<?=$project->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                         <i class="zmdi zmdi-edit"></i>
                     </a>
-                    <a href="projectOperation<?=$project->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                    <a href="removeProject<?=$project->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                         <i class="zmdi zmdi-delete"></i>
                     </a>
                 </div>

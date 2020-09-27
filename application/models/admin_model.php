@@ -46,6 +46,11 @@ class admin_model extends CI_Model {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
+    public function projectRemove($id)
+    {
+        $this->load->database();
+        $this->db->delete('projects',array('id'=>$id));
+    }
     public function projectImages($id)
     {
         try {

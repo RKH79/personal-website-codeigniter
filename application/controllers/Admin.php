@@ -26,7 +26,6 @@ class admin extends CI_Controller {
     }
     public function projectOperation($id)
     {
-        $this->load->library('jdf');
         $this->load->model('admin_model');
         if (isset($_POST['Id'])) {
             if ($_POST['Id'] == "") { //insert
@@ -46,6 +45,17 @@ class admin extends CI_Controller {
             $this->load->view('adminPanel/projectOperation', array('project'=>$project,'projectImages'=>$projectImages));
             $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
         }
+    }
+    public function removeProject($id)
+    {
+        if ($id!="") {
+            $this->load->model('admin_model');
+            $this->admin_model->projectRemove($id);
+            $projectImages = $this->admin_model->projectImages($id);
+            unlink("assets/images/sliderImage/".$projectImages->url);
+            $this->admin_model->removeProjectImage($projectImages->url);
+        }
+        header("Location: projects");
     }
     public function uploadProjectImage()
     {

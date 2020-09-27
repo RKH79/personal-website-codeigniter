@@ -111,6 +111,11 @@
                                 <i class="zmdi zmdi-email"></i>پیام ها
                             </a>
                         </li>
+                        <li id="recordsManage">
+                            <a href="recordsManage">
+                                <i class="zmdi zmdi-email"></i>رکورد ها
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

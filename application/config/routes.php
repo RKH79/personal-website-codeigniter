@@ -68,5 +68,6 @@ $route['statusComment(:num)'] = 'admin/statusComment/$1';
 $route['deleteComment(:num)'] = 'admin/deleteComment/$1';
 $route['messages'] = 'admin/messages';
 $route['deleteMessage(:num)'] = 'admin/deleteMessage/$1';
+$route['recordsManage'] = 'admin/records';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

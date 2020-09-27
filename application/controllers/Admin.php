@@ -134,4 +134,14 @@ class admin extends CI_Controller {
         session_destroy();
         header("Location: .");
     }
+    public function records()
+    {
+        $this->load->library('jdf');
+        $this->load->model('home_model');
+        $this->load->model('admin_model');
+        $records = $this->home_model->records();
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت رکورد ها'));
+        $this->load->view('adminPanel/records', array('records'=>$records));
+        $this->load->view('adminPanel/template/footer',array('page'=>'recordsManage'));
+    }
 }

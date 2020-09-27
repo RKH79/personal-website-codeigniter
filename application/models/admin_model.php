@@ -48,8 +48,12 @@ class admin_model extends CI_Model {
     }
     public function projectRemove($id)
     {
-        $this->load->database();
+        try {
+            $this->load->database();
         $this->db->delete('projects',array('id'=>$id));
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
     }
     public function projectImages($id)
     {
@@ -63,8 +67,12 @@ class admin_model extends CI_Model {
     }
     public function removeProjectImage($url)
     {
-        $this->load->database();
-        //TODO
+        try {
+            $this->load->database();
+        $this->db->delete('images',array('url'=>$url));
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
     }
     public function insertProjectImage($projectId)
     {

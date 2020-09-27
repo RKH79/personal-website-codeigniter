@@ -52,8 +52,10 @@ class admin extends CI_Controller {
             $this->load->model('admin_model');
             $this->admin_model->projectRemove($id);
             $projectImages = $this->admin_model->projectImages($id);
-            unlink("assets/images/sliderImage/".$projectImages->url);
-            $this->admin_model->removeProjectImage($projectImages->url);
+            foreach ($projectImages as $projectImage) {
+                unlink("assets/images/sliderImage/".$projectImage->url);
+                $this->admin_model->removeProjectImage($projectImage->url);
+            }
         }
         header("Location: projects");
     }

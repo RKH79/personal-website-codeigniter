@@ -11,6 +11,11 @@ if (imageurl!==null) {
         uploadImageAjax.send(formData);
         uploadImageAjax.onload = function () {
             if (uploadImageAjax.status === 200) {
+                if (document.getElementById("imagesBox").innerText == "") {
+                    console.log('masterImg');
+                    masterImage = uploadImageAjax.response;
+                }
+                console.log(document.getElementById("imagesBox").innerText);
                 document.getElementById("imagesBox").innerHTML += '<div class="d-inline-block imageBox"><div class="point" data-url="'+uploadImageAjax.response+'"><div class="triangle-top"><i class="zmdi zmdi-close removeImage"></i></div><div class="triangle-down"><i class="masterImage zmdi zmdi-star-outline "></i></div></div><img class="projectImage" src="assets/images/sliderImage/'+uploadImageAjax.response+'" width="250px" height="150px" /></div>';
                 ImagesOperation();
                 imageChange[imageChange.length] = uploadImageAjax.response;

@@ -113,7 +113,7 @@
                         </li>
                         <li id="recordsManage">
                             <a href="recordsManage">
-                                <i class="zmdi zmdi-email"></i>رکورد ها
+                                <i class="zmdi zmdi-archive"></i>رکورد ها
                             </a>
                         </li>
                     </ul>

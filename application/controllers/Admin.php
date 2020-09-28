@@ -144,4 +144,35 @@ class admin extends CI_Controller {
         $this->load->view('adminPanel/records', array('records'=>$records));
         $this->load->view('adminPanel/template/footer',array('page'=>'recordsManage'));
     }
+    public function recordOperation($id)
+    {
+        $this->load->model('admin_model');
+        if (isset($_POST['Id'])) {
+            if ($_POST['Id'] == "") { //insert
+                $this->admin_model->recordInsert();
+            }
+            else { //update
+                if ($_POST['file'] != "") {
+                    unlink("assets/uploads/".$_POST['oldFile']);
+                    
+                }
+                $this->admin_model->recordUpdate();
+            }
+            header("Location: recordsManage");
+        }
+        else { //return view
+            $record = $this->admin_model->record($id);
+            $this->load->view('adminPanel/template/header',array('title'=>'مدیریت رکورد ها'));
+            $this->load->view('adminPanel/recordOperation', array('record'=>$record));
+            $this->load->view('adminPanel/template/footer',array('page'=>'recordsManage'));
+        }
+    }
+    public function removeRecord($id)
+    {
+        $this->load->model('admin_model');
+        $record = $this->admin_model->record($id);
+        unlink("assets/uploads/".$record[0]->link);
+        $this->admin_model->recordRemove($id);
+        header("Location: recordsManage");
+    }
 }

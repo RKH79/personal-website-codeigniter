@@ -69,5 +69,7 @@ $route['deleteComment(:num)'] = 'admin/deleteComment/$1';
 $route['messages'] = 'admin/messages';
 $route['deleteMessage(:num)'] = 'admin/deleteMessage/$1';
 $route['recordsManage'] = 'admin/records';
+$route['recordOperation(:num)?'] = 'admin/recordOperation/$1';
+$route['removeRecord(:num)'] = 'admin/removeRecord/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

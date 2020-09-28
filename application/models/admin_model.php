@@ -136,4 +136,44 @@ class admin_model extends CI_Model {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
+    public function record($id)
+    {
+        try {
+            $this->load->database();
+            return $this->db->get_where('records',array ('id'=>$id,'status'=>1))->result_object();
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
+    public function recordInsert()
+    {
+        try {
+            $this->load->database();
+            $this->db->insert('records',array('title'=>$_POST['title'],'link'=>$_POST['file']));
+            $_SESSION['msgG']="!!رکورد با موفقیت ثبت شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
+    public function recordUpdate()
+    {
+        try {
+            $this->load->database();
+            $file = ($_POST['file'] == "")? $_POST['oldFile']:$_POST['file'];
+            $this->db->update('records',array('title'=>$_POST['title'],'link'=>$file),array('id'=>$_POST['Id']));
+            $_SESSION['msgG']="!!رکورد با موفقیت ثبت شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
+    public function recordRemove($id)
+    {
+        try {
+            $this->load->database();
+            $this->db->delete('records',array('id'=>$id));
+            $_SESSION['msgG']="!!رکورد با موفقت حذف شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
+    }
 }

@@ -44,13 +44,12 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('home_model');
 		$this->home_model->newMessage();
-		header("Location: .");
 	}
 	public function newComment($id)
 	{
 		$this->load->model('home_model');
 		$this->home_model->newComment($id);
-		header("Location: projectDetail".$id);
+		
 	}
 	public function login()
 	{

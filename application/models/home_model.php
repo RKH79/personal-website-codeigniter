@@ -48,8 +48,15 @@ class home_model extends CI_Model {
                 'email' => $_POST['email'],
                 'message' => $_POST['message']
             );
-            $this->db->insert('messages', $message);
-            $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+            if ($_POST['captchaCode']==$_SESSION['captcha_code']) {
+                $this->db->insert('messages', $message);
+                $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+                header("Location: .");
+            }
+            else {
+                $_SESSION['msgR'] = "!!لطفا کد تصویر را با دقت وارد کنید";
+                header("Location:contact");
+            }
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
         }
@@ -64,8 +71,14 @@ class home_model extends CI_Model {
                 'email' => $_POST['email'],
                 'comment' => $_POST['comment']
             );
-            $this->db->insert('comments', $comment);
-            $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+            if ($_POST['captchaCode']==$_SESSION['captcha_code']) {
+                $this->db->insert('comments', $comment);
+                $_SESSION['msgG'] = "!پیام شما با موفقیت ارسال شد";
+            }
+            else {
+                $_SESSION['msgR'] = "!!لطفا کد تصویر را با دقت وارد کنید";
+            }
+            header("Location: projectDetail".$id);
         } catch (\Throwable $th) {
             $_SESSION['msgR'] = "!!متاسفانه در ارسال پیام مشکلی پیش آمده است";
         }

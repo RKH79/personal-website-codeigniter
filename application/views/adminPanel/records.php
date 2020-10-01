@@ -16,19 +16,19 @@
     </div>
     <?php foreach ($records as $record):
         switch (strrchr(strtolower($record->link),".")) {
-            case ('.zip'||'.rar'||'.7zip'):
+            case'.rar': case'.zip': case'.7zip':
                 $icon = "zmdi-archive";
                 break;
-            case ('.mp4'||'.mkv'||'.3gp'):
+            case'.mp4': case'.mkv': case'.3gp':
                 $icon = "zmdi-movie";
                 break;
-            case ('.mp3'||'.wav'||'.wma'):
+            case'.mp3': case'.wav': case'.wma':
                 $icon = "zmdi-audio";
                 break;
-            case ('.jpg'||'.jpeg'||'.png'):
+            case'.jpg': case'.jpeg': case'.png':
                 $icon = "zmdi-image";
                 break;
-            case ('.pdf'||'.docx'||'.doc'):
+            case'.pdf': case'.docx': case'.doc':
                 $icon = "zmdi-assignment";
                 break;
             default:

@@ -145,7 +145,7 @@ class admin_model extends CI_Model {
     {
         try {
             $this->load->database();
-            return $this->db->get_where('records',array ('id'=>$id,'status'=>1))->result_object();
+            return $this->db->get_where('records',array ('id'=>$id))->result_object();
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }

@@ -17,13 +17,13 @@
             <div class="table-cell"><img width="150px" src="assets/images/sliderImage/<?= $comment->url ?>" class="img-radius" alt="<?= $comment->title ?>"></div>
             <div class="table-cell">
                 <div class="table-data-feature">
-                    <?php if (!$comment->status): ?>
-                        <a href="statusComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
-                            <i class="zmdi zmdi-check"></i>
-                        </a>
-                    <?php else: ?>
+                    <?php if ($comment->status): ?>
                         <a href="statusComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="رد کردن">
                             <i class="zmdi zmdi-close"></i>
+                        </a>
+                    <?php else: ?>
+                        <a href="statusComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
+                            <i class="zmdi zmdi-check"></i>
                         </a>
                     <?php endif; ?>
                     <a href="deleteComment<?= $comment->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="حذف">

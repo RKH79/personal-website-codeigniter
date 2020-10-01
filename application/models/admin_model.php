@@ -136,6 +136,11 @@ class admin_model extends CI_Model {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
+    public function records()
+    {
+        $this->load->database();
+        return $this->db->get_where('records')->result_object();
+    }
     public function record($id)
     {
         try {
@@ -194,5 +199,17 @@ class admin_model extends CI_Model {
             $fullFilename = $this->upload->data('file_name');
         }
         return $fullFilename;
+    }
+    public function recordStatus($id)
+    {
+        try {
+            $this->load->database();
+            $this->db->set('status','!status',false);
+            $this->db->where('id', $id);
+            $this->db->update('records');
+            $_SESSION['msgG']="!ویرایش با موفقیت انجام شد";
+        } catch (\Throwable $th) {
+            $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
+        }
     }
 }

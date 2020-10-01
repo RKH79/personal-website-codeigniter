@@ -42,6 +42,15 @@
             <div class="table-cell"><a class="d-block" href="assets/uploads/<?= $record->link ?>" download><div style="margin-bottom: -4px;" class="downloadLink d-inline-block"><i class="zmdi <?= $icon ?>"></i></div><div class="d-inline-block"><?= $record->link ?></div></a></div>
             <div class="table-cell">
                 <div class="table-data-feature">
+                    <?php if ($record->status): ?>
+                        <a href="recordStatus<?= $record->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="رد کردن">
+                            <i class="zmdi zmdi-close"></i>
+                        </a>
+                    <?php else: ?>
+                        <a href="recordStatus<?= $record->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="قبول کردن">
+                            <i class="zmdi zmdi-check"></i>
+                        </a>
+                    <?php endif; ?>
                     <a href="recordOperation<?=$record->id?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                         <i class="zmdi zmdi-edit"></i>
                     </a>

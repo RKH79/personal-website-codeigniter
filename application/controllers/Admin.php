@@ -137,9 +137,8 @@ class admin extends CI_Controller {
     public function records()
     {
         $this->load->library('jdf');
-        $this->load->model('home_model');
         $this->load->model('admin_model');
-        $records = $this->home_model->records();
+        $records = $this->admin_model->records();
         $this->load->view('adminPanel/template/header',array('title'=>'مدیریت رکورد ها'));
         $this->load->view('adminPanel/records', array('records'=>$records));
         $this->load->view('adminPanel/template/footer',array('page'=>'recordsManage'));
@@ -175,6 +174,12 @@ class admin extends CI_Controller {
         $record = $this->admin_model->record($id);
         unlink("assets/uploads/".$record[0]->link);
         $this->admin_model->recordRemove($id);
+        header("Location: recordsManage");
+    }
+    public function recordStatus($id)
+    {
+        $this->load->model('admin_model');
+        $this->admin_model->recordStatus($id);
         header("Location: recordsManage");
     }
 }

@@ -149,14 +149,16 @@ class admin extends CI_Controller {
         $this->load->model('admin_model');
         if (isset($_POST['Id'])) {
             if ($_POST['Id'] == "") { //insert
-                $this->admin_model->recordInsert();
+                $filename = $this->admin_model->uploadFile();
+                $this->admin_model->recordInsert($filename);
             }
             else { //update
-                if ($_POST['file'] != "") {
-                    unlink("assets/uploads/".$_POST['oldFile']);
-                    
+                if ($_FILES['file'] != null) {
+                    $filename = $this->admin_model->uploadFile();
+                }else {
+                    $filename = $_POST['oldFile'];
                 }
-                $this->admin_model->recordUpdate();
+                $this->admin_model->recordUpdate($filename);
             }
             header("Location: recordsManage");
         }

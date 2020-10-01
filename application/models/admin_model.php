@@ -145,22 +145,21 @@ class admin_model extends CI_Model {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
-    public function recordInsert()
+    public function recordInsert($filename)
     {
         try {
             $this->load->database();
-            $this->db->insert('records',array('title'=>$_POST['title'],'link'=>$_POST['file']));
+            $this->db->insert('records',array('title'=>$_POST['title'],'link'=>$filename));
             $_SESSION['msgG']="!!رکورد با موفقیت ثبت شد";
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
     }
-    public function recordUpdate()
+    public function recordUpdate($filename)
     {
         try {
             $this->load->database();
-            $file = ($_POST['file'] == "")? $_POST['oldFile']:$_POST['file'];
-            $this->db->update('records',array('title'=>$_POST['title'],'link'=>$file),array('id'=>$_POST['Id']));
+            $this->db->update('records',array('title'=>$_POST['title'],'link'=>$filename),array('id'=>$_POST['Id']));
             $_SESSION['msgG']="!!رکورد با موفقیت ثبت شد";
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
@@ -175,5 +174,25 @@ class admin_model extends CI_Model {
         } catch (\Throwable $th) {
             $_SESSION['msgR']="!مشکلی در سیستم رخ داده است";
         }
+    }
+    public function uploadFile()
+    {
+        date_default_timezone_set("Asia/Tehran");
+        $filename = date("Y-m-d_H-i-s__") . rand(1,1000);
+        $config['file_name'] = $filename;
+        $config['upload_path'] = 'assets/uploads/';
+        $config['allowed_types'] = 'rar|zip|7zip|jpg|jpeg';
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('file'))
+            {
+                $_SESSION['msgR'] = $this->upload->display_errors();
+                $fullFilename = $_POST['oldFile'];
+            }
+        else{
+            if($_POST['oldFile'] != "" && is_file("assets/uploads/".$_POST['oldFile']))
+                unlink("assets/uploads/".$_POST['oldFile']);
+            $fullFilename = $this->upload->data('file_name');
+        }
+        return $fullFilename;
     }
 }

@@ -55,3 +55,28 @@ function ImagesOperation() {
         })  
     }
 }
+let removeBtn = document.querySelectorAll('.removeBtn');
+if (removeBtn !== null) {
+    let removeAlert = document.getElementsByClassName('removeAlert');
+    let hoverAllPage = document.getElementsByClassName('hoverAllPage');
+    removeBtn.forEach(function(params) {
+        params.onclick = function(event) {
+            event.preventDefault();
+            removeAlert[0].style.display = 'block';
+            hoverAllPage[0].style.display = 'block';
+            removeAlert[0].classList.remove('fadeOutUp');
+            removeAlert[0].classList.add('fadeInDown');
+            document.getElementsByClassName('removeAcceptBtn')[0].attributes['href'].value = params.attributes['href'].value;
+            document.getElementsByClassName('cancelBtn')[0].onclick = function(){
+                removeAlert[0].classList.remove('fadeInDown');
+                removeAlert[0].classList.add('fadeOutUp');
+                hoverAllPage[0].style.display = 'none';
+            }
+            hoverAllPage[0].onclick = function(){
+                removeAlert[0].classList.remove('fadeInDown');
+                removeAlert[0].classList.add('fadeOutUp');
+                hoverAllPage[0].style.display = 'none';
+            }
+        }
+    });    
+}

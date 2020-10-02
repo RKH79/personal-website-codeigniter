@@ -22,6 +22,16 @@
         <div id="Ralert" class="alert alert-danger animated "><?= (isset($_SESSION['msgR']))? $_SESSION['msgR'] : "" ?></div>
         <?php $_SESSION['msgR'] = $_SESSION['msgG'] = ""; ?>
     </div>
+    <div class="removeAlert animated">
+        <div class="py-2 bg-danger text-white">
+            <p><?= (isset($removeAlertText))? $removeAlertText: "" ?></p>
+        </div>
+        <div class="mt-3">
+            <input class="btn btn-secondary mr-5 w-25 cancelBtn" type="button" value="لغو"/>
+            <a href="" class="btn btn-danger w-25 removeAcceptBtn text-white">حذف</a>
+        </div>
+    </div>
+    <div class="hoverAllPage"></div>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">

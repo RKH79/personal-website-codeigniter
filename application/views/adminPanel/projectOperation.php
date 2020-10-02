@@ -65,5 +65,5 @@
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
         CKEDITOR.replace('description');
-        CKEDITOR.instances['description'].setData(new DOMParser().parseFromString(document.getElementById("text").innerHTML, 'text/html'));
+        CKEDITOR.instances['description'].setData(new DOMParser().parseFromString(document.getElementById("description").innerHTML, 'text/html'));
 </script>

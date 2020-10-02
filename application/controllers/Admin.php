@@ -20,7 +20,7 @@ class admin extends CI_Controller {
         $this->load->library('jdf');
         $this->load->model('admin_model');
         $projects = $this->admin_model->projects();
-        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها'));
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پروژه ها','removeAlertText'=>'آیا پروژه حذف شود؟'));
         $this->load->view('adminPanel/projects', array('projects'=>$projects));
         $this->load->view('adminPanel/template/footer',array('page'=>'projects'));
     }
@@ -98,7 +98,7 @@ class admin extends CI_Controller {
         $this->load->library('jdf');
         $this->load->model('admin_model');
         $comments = $this->admin_model->comments();
-        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت نظرات'));
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت نظرات','removeAlertText'=>'آیا نظر حذف شود؟'));
         $this->load->view('adminPanel/comments', array('comments'=>$comments));
         $this->load->view('adminPanel/template/footer',array('page'=>'comments'));
     }
@@ -119,7 +119,7 @@ class admin extends CI_Controller {
         $this->load->library('jdf');
         $this->load->model('admin_model');
         $messages = $this->admin_model->messages();
-        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پیام ها'));
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت پیام ها','removeAlertText'=>'آیا پیام حذف شود؟'));
         $this->load->view('adminPanel/messages', array('messages'=>$messages));
         $this->load->view('adminPanel/template/footer',array('page'=>'messages'));
     }
@@ -139,7 +139,7 @@ class admin extends CI_Controller {
         $this->load->library('jdf');
         $this->load->model('admin_model');
         $records = $this->admin_model->records();
-        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت رکورد ها'));
+        $this->load->view('adminPanel/template/header',array('title'=>'مدیریت رکورد ها','removeAlertText'=>'آیا رکورد حذف شود؟'));
         $this->load->view('adminPanel/records', array('records'=>$records));
         $this->load->view('adminPanel/template/footer',array('page'=>'recordsManage'));
     }

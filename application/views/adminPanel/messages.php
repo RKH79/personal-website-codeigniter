@@ -15,7 +15,7 @@
             <div class="table-cell"><span class="block-text"><?= $message->message ?></span></div>
             <div class="table-cell">
                 <div class="table-data-feature">
-                    <a href="deleteMessage<?= $message->id ?>" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                    <a href="deleteMessage<?= $message->id ?>" class="item  removeBtn" data-toggle="tooltip" data-placement="top" title="Delete">
                         <i class="zmdi zmdi-delete"></i>
                     </a>
                 </div>

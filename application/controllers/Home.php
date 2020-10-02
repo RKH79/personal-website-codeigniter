@@ -49,7 +49,6 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('home_model');
 		$this->home_model->newComment($id);
-		
 	}
 	public function login()
 	{

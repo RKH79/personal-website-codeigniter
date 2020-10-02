@@ -38,6 +38,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-lg-12 col-12">
                         <textarea class="form-control" rows="6" name="comment" placeholder="نظر شما"></textarea>
                     </div>
+                    <div class="col-lg-6 col-12">
+                        <input type="text" class="form-control text-right" name="captchaCode" placeholder="کد تصویر" dir="ltr">
+                    </div>
+                    <div class="col-lg-6 col-12 text-center">
+                        <img src="assets/captcha.php" class="mt-3 refresh-captcha"  alt="captcha"/>
+                    </div>
                     <div class="col-lg-5 mx-auto col-7">
                         <button type="submit" class="form-control" id="submit-button" name="submit">ارسال نظر</button>
                     </div>
